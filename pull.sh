@@ -35,18 +35,9 @@ TMPFILE=`mktemp ./${temp}.tmp` || exit 1
 
 function rest_call {
     curl -s $1 -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN" | grep "clone_url" | sed -e 's/"clone_url": //g; s/,//g; s/"//g; s/ //g' >> $TMPFILE
-
-    while IFS= read -r repo
-    do
-      echo "Cloning $repo"
-      echo ""
-      cd $DESTINATION_PATH
-      git clone $repo
-      echo ""
-      cd $CURRENT_PATH
-      let "COUNTER+=1"
-    done < ./${temp}.tmp
 }
+
+echo "Reading data from GitHub...."
 
 # single page result-s (no pagination), have no link: section, the grep result is empty
 # curl -s -I "https://api.github.com${GITHUB_API_REST}" -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN"
@@ -60,10 +51,22 @@ else
     # yes - this result is on multiple pages
     for p in `seq 1 $last_page`; do
         echo "Page: $p of $last_page"
-        echo ""
         rest_call "https://api.github.com${GITHUB_API_REST}?page=$p"
     done
 fi
+
+echo "./${temp}.tmp"
+
+while IFS= read -r repo
+do
+  echo "Cloning $repo"
+  echo ""
+  cd $DESTINATION_PATH
+  git clone $repo
+  echo ""
+  cd $CURRENT_PATH
+  let "COUNTER+=1"
+done < ./${temp}.tmp
 
 echo "$COUNTER repos cloned"
 echo "Done"
