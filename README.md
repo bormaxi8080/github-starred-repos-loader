@@ -31,10 +31,9 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 - Clone this repository
 - Run 'bash pull.sh ', aka this, and wait:
 
->> bash pull.sh "/Volumes/Transcend/repos" "<YOUR GITHUB TOKEN>"
+> bash pull.sh "/Volumes/Transcend/repos" "YOUR GITHUB TOKEN"
 
 - Bingo!
-
 
 
 ![alt text](./repos.png "Repos List in Finder")
@@ -56,6 +55,8 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 ### More About GitHub API Pagination Requests:
 
 [Link](https://docs.github.com/en/rest/guides/traversing-with-pagination)
+
+Example screen:
 
 ![alt text](./pagination_headers.png "Pagination Headers")
 
