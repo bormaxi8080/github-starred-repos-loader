@@ -33,8 +33,9 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 
 > bash pull.sh "/Volumes/Transcend/repos" "YOUR GITHUB TOKEN"
 
-- Bingo!
+![alt text](./terminal.png "Terminal")
 
+- Bingo!
 
 ![alt text](./repos.png "Repos List in Finder")
 
