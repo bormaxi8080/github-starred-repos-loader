@@ -64,5 +64,4 @@ Example screen:
 ## TODO:
 
 - Add excluded repos list
-- Remember last cloned repository / log cloned repositories 
 - More than 1000 starred repos?
