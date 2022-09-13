@@ -55,7 +55,8 @@ else
     done
 fi
 
-echo "./${temp}.tmp"
+#echo "./${temp}.tmp"
+echo ""
 
 while IFS= read -r repo
 do
