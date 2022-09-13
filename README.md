@@ -33,7 +33,8 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 
 > bash pull.sh "/Volumes/Transcend/repos" "YOUR GITHUB TOKEN"
 
-![alt text](./terminal.png "Terminal")
+![alt text](./terminal1.png "Terminal")
+![alt text](./terminal2.png "Terminal")
 
 - Bingo!
 
