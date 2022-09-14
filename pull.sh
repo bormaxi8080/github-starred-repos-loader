@@ -28,20 +28,28 @@ CURRENT_PATH="$PWD"
 # set repositories counter
 COUNTER=0
 
-temp=`basename $0`
-rm -rf ${temp}.tmp
+# shellcheck disable=SC2006
+temp=`basename "$0"`
+rm -rf "${temp}".tmp
 
-TMPFILE=`mktemp ./${temp}.tmp` || exit 1
+TMPFILE=$(mktemp ./"${temp}".tmp) || exit 1
 
 function rest_call {
-    curl -s $1 -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN" | grep "clone_url" | sed -e 's/"clone_url": //g; s/,//g; s/"//g; s/ //g' >> $TMPFILE
+    curl -s "$1" -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN" | \
+    grep "clone_url" | \
+    sed -e 's/"clone_url": //g; s/,//g; s/"//g; s/ //g' >> "$TMPFILE"
 }
 
 echo "Reading data from GitHub...."
 
 # single page result-s (no pagination), have no link: section, the grep result is empty
-# curl -s -I "https://api.github.com${GITHUB_API_REST}" -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN"
-last_page=`curl -s -I "https://api.github.com${GITHUB_API_REST}" -H "${GITHUB_API_HEADER_ACCEPT}" -H "Authorization: token $GITHUB_TOKEN" | grep '^link:' | sed -e 's/^link:.*page=//g' -e 's/>.*$//g'`
+# curl -s -I "https://api.github.com${GITHUB_API_REST}" \
+# -H "${GITHUB_API_HEADER_ACCEPT}" \
+# -H "Authorization: token $GITHUB_TOKEN"
+last_page=$(curl -s -I "https://api.github.com${GITHUB_API_REST}" -H "${GITHUB_API_HEADER_ACCEPT}" \
+-H "Authorization: token $GITHUB_TOKEN" | \
+grep '^link:' | \
+sed -e 's/^link:.*page=//g' -e 's/>.*$//g')
 
 # does this result use pagination?
 if [ -z "$last_page" ]; then
@@ -49,7 +57,7 @@ if [ -z "$last_page" ]; then
     rest_call "https://api.github.com${GITHUB_API_REST}"
 else
     # yes - this result is on multiple pages
-    for p in `seq 1 $last_page`; do
+    for p in $(seq 1 "$last_page"); do
         echo "Page: $p of $last_page"
         rest_call "https://api.github.com${GITHUB_API_REST}?page=$p"
     done
@@ -62,12 +70,13 @@ while IFS= read -r repo
 do
   echo "Cloning $repo"
   echo ""
-  cd $DESTINATION_PATH
+  cd "$DESTINATION_PATH"
   git clone $repo
   echo ""
-  cd $CURRENT_PATH
+  cd "$CURRENT_PATH"
+  # shellcheck disable=SC2219
   let "COUNTER+=1"
-done < ./${temp}.tmp
+done < ./"${temp}".tmp
 
 echo "$COUNTER repos cloned"
 echo "Done"
