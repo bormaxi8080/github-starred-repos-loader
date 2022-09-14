@@ -40,7 +40,7 @@ function rest_call {
     sed -e 's/"clone_url": //g; s/,//g; s/"//g; s/ //g' >> "$TMPFILE"
 }
 
-echo "Reading data from GitHub...."
+echo "Reading data from GitHub..."
 
 # single page result-s (no pagination), have no link: section, the grep result is empty
 # curl -s -I "https://api.github.com${GITHUB_API_REST}" \
