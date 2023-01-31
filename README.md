@@ -18,7 +18,7 @@ This script does simple things:
 >> 
 >> View clone statistics
 
-## Thats all!
+## That's all!
 
 *It works on GitHub only! (not in GitLab or BitBucket)
 
@@ -44,19 +44,19 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 
 ### How to get your GitHub personal API access token for API:
 
-[Link](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+[https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
 ### More about GitHub API:
 
-[Link](https://docs.github.com/en/rest)
+[https://docs.github.com/en/rest](https://docs.github.com/en/rest)
 
 ## More about GitHub Starred API:
 
-[Link](https://docs.github.com/en/rest/activity/starring)
+[https://docs.github.com/en/rest/activity/starring](https://docs.github.com/en/rest/activity/starring)
 
 ### More About GitHub API Pagination Requests:
 
-[Link](https://docs.github.com/en/rest/guides/traversing-with-pagination)
+[https://docs.github.com/en/rest/guides/traversing-with-pagination](https://docs.github.com/en/rest/guides/traversing-with-pagination)
 
 Example screen:
 
