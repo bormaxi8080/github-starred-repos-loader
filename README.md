@@ -46,6 +46,10 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 
 [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
+### More about GitHub stars:
+
+[https://stars.github.com/](https://stars.github.com/)
+
 ### More about GitHub API:
 
 [https://docs.github.com/en/rest](https://docs.github.com/en/rest)
