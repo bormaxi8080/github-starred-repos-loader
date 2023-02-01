@@ -69,4 +69,3 @@ Example screen:
 ## TODO:
 
 - Add excluded repos list
-- More than 1000 starred repos?
