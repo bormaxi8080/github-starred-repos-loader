@@ -40,6 +40,10 @@ If you have a lot of starred GitHub repositories, and they are big, clone operat
 
 ![alt text](./repos.png "Repos List in Finder")
 
+## Related projects:
+
+Also I use [git-repos-updater](https://github.com/bormaxi8080/git-repos-updater) and [github-starred-repos-builder](https://github.com/bormaxi8080/github-starred-repos-builder) scripts to update my starred GitHub collected repos locally and generates repos description in Markdown format.
+
 ## Notes:
 
 ### How to get your GitHub personal API access token for API:
