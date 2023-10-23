@@ -70,9 +70,11 @@ while IFS= read -r repo
 do
   echo "Cloning $repo"
   echo ""
+  # shellcheck disable=SC2164
   cd "$DESTINATION_PATH"
   git clone $repo
   echo ""
+  # shellcheck disable=SC2164
   cd "$CURRENT_PATH"
   # shellcheck disable=SC2219
   let "COUNTER+=1"
