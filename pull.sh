@@ -8,6 +8,17 @@ if [ ${#@} -lt 2 ]; then
     exit 1;
 fi
 
+# set GitHub options
+# https://stackoverflow.com/questions/21277806/fatal-early-eof-fatal-index-pack-failed
+git config --global core.compression 0
+ulimit -f 2097152
+ulimit -c 2097152
+ulimit -n 2097152
+
+# git config --show-origin core.packedGitLimit
+# git config --unset --global core.packedGitLimit
+# git config --global http.postBuffer 2M
+
 # destination repositories folder
 # repository="/Volumes/Transcend/repos"
 DESTINATION_PATH=$1
@@ -73,6 +84,7 @@ do
   # shellcheck disable=SC2164
   cd "$DESTINATION_PATH"
   git clone $repo
+  # git clone --depth=1 $repo
   echo ""
   # shellcheck disable=SC2164
   cd "$CURRENT_PATH"
