@@ -83,7 +83,7 @@ do
   echo ""
   # shellcheck disable=SC2164
   cd "$DESTINATION_PATH"
-  git clone $repo
+  git clone --depth=1 $repo
   echo ""
   # shellcheck disable=SC2164
   cd "$CURRENT_PATH"
