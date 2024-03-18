@@ -18,6 +18,7 @@ ulimit -n 2097152
 # git config --show-origin core.packedGitLimit
 # git config --unset --global core.packedGitLimit
 # git config --global http.postBuffer 2M
+git config --global http.postBuffer 524288000
 
 # destination repositories folder
 # repository="/Volumes/Transcend/repos"
